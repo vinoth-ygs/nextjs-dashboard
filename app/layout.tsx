@@ -1,7 +1,13 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import Link from 'next/link';
-
+import { Metadata } from 'next';
+ 
+export const metadata: Metadata = {
+  title: 'Dashboard 1',
+  description: 'Sample Next.js Application',
+  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+};
 export default function RootLayout({
   children,
 }: {
@@ -10,12 +16,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <nav>
-          {/* Prefetched when the link is hovered or enters the viewport */}
-          <Link href="/blog">Blog</Link>
-          {/* No prefetching */}
-          <a href="/contact">Contact</a>
-        </nav>
         {children}
       </body>
     </html>
